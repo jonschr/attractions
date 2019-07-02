@@ -36,6 +36,18 @@ require_once( 'lib/layout.php' );
 require_once( 'lib/fields.php' );
 require_once( 'lib/admin_columns.php' );
 
+add_action( 'wp_enqueue_scripts', 'attractions_enqueue' );
+function attractions_enqueue() {
+	
+	// Plugin styles
+    wp_enqueue_style( 'attractions-style', plugin_dir_url( __FILE__ ) . 'css/attractions-style.css', array(), ATTRACTIONS_VERSION, 'screen' );
+    
+    // Script
+    // wp_register_script( 'slick-init', plugin_dir_url( __FILE__ ) . 'js/slick-init.js', array( 'slick-main' ), REDBLUE_SECTIONS_VERSION, true );
+	
+	
+}
+
 //* Remove Yoast
 add_action('add_meta_boxes', 'my_remove_wp_seo_meta_box', 100);
 function my_remove_wp_seo_meta_box() {
