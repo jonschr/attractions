@@ -99,7 +99,7 @@ function attractions_do_layout( $atts ) {
 
                 //* If we just have an address
                 if ( $address && !$customurl )
-                    $link = 'https://maps.google.com?q=' . urlencode( $address );
+                    $link = 'https://maps.google.com?q=' . urlencode( $title . ' ' . $address );
 
                 //* If we have a custom URL
                 if ( $customurl )
