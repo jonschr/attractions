@@ -20,12 +20,17 @@ function attractions_do_layout( $atts ) {
 
         // Show everything once the page is fully loaded
         $( '.type-attractions' ).addClass( 'active' );
-	
+    
         $( 'ul.attractions-filters a' ).click( function( e ) {
+            
             e.preventDefault();
+            
+            //* add active class on the active nav item
+            $( 'ul.attractions-filters a' ).removeClass( 'active' );
+            $( this ).addClass( 'active' ); 
+            
+            //* add active class for visible things
             term = $( this ).attr( 'data-term' );
-            // console.log( term );
-
             $( '.type-attractions' ).removeClass( 'active' );
             $( '.attractiontype-' + term ).addClass( 'active' );
         });
@@ -94,16 +99,16 @@ function attractions_do_layout( $atts ) {
 
                 //* If we just have an address
                 if ( $address && !$customurl )
-                    $link = 'https://www.google.com/search?q=' . urlencode( $address );
+                    $link = 'https://maps.google.com?q=' . urlencode( $address );
 
                 //* If we have a custom URL
                 if ( $customurl )
                     $link = $customurl;
 
-                if ( $link )
+                if ( $link != null )
                     printf('<a target="_blank" class="overlay" href="%s"></a>', $link );
 
-                printf( '<div class="featured-image" style="background-image:url( %s )"></div>', get_the_post_thumbnail_url( get_the_ID(), 'medium' ) );
+                printf( '<div class="featured-image" style="background-image:url( %s )"></div>', get_the_post_thumbnail_url( get_the_ID(), 'large' ) );
 
                 if ( $title )
                     printf( '<h3>%s</h3>', $title );
