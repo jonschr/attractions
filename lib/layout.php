@@ -18,13 +18,12 @@ function attractions_do_layout( $atts ) {
     <script>
     jQuery(document).ready(function( $ ) {
 
-        // Show everything once the page is fully loaded
-        $( '.type-attractions' ).addClass( 'active' );
-    
-        $( 'ul.attractions-filters a' ).click( function( e ) {
+        function runFilter( event ) {
+
+            console.log( this );
             
-            e.preventDefault();
-            
+            event.preventDefault();
+
             //* add active class on the active nav item
             $( 'ul.attractions-filters a' ).removeClass( 'active' );
             $( this ).addClass( 'active' ); 
@@ -33,8 +32,17 @@ function attractions_do_layout( $atts ) {
             term = $( this ).attr( 'data-term' );
             $( '.type-attractions' ).removeClass( 'active' );
             $( '.attractiontype-' + term ).addClass( 'active' );
-        });
+        }
+
+        // Show everything once the page is fully loaded
+        $( '.type-attractions' ).addClass( 'active' );
+    
+        //* On click, run the filter
+        $( 'ul.attractions-filters a' ).on( 'click', runFilter );
         
+        //* On load, simulate a click
+        $( 'ul.attractions-filters li:first-child a' ).trigger( 'click' );
+
     });
     </script>
     <?php
