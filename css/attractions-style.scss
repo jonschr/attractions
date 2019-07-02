@@ -29,15 +29,49 @@
     flex-flow: row wrap;
     padding-top: 35px;
     justify-content: center;
+    width: calc( 100% + 20px );
+    margin-left: -10px;
+    margin-right: -10px;
 
     .attractions {
         width: 300px;
         display: none;
         margin: 0 10px 20px;
         text-align: left;
+        position: relative;
+
+        @media (max-width: 600px) {
+            width: 100%;
+        }
 
         &.active {
             display: block;
+        }
+
+        .overlay {
+            cursor: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            left: 0;
+            display: block;
+        }
+
+        .featured-image {
+            height: 0;
+            width: 100%;
+            padding-top: 80%;
+            display: block;
+            background-color: rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+            display: block;
+        }
+    }
+
+    .attractions:hover {
+        .overlay {
+            cursor: pointer;
         }
     }
 }

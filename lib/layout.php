@@ -87,6 +87,23 @@ function attractions_do_layout( $atts ) {
 
                 $title = get_the_title();
                 $address = get_post_meta( get_the_ID(), 'address' , true );
+                $customurl = get_post_meta( get_the_ID(), 'customurl' , true );
+
+                //* No link (default)
+                $link = null;
+
+                //* If we just have an address
+                if ( $address && !$customurl )
+                    $link = 'https://www.google.com/search?q=' . urlencode( $address );
+
+                //* If we have a custom URL
+                if ( $customurl )
+                    $link = $customurl;
+
+                if ( $link )
+                    printf('<a target="_blank" class="overlay" href="%s"></a>', $link );
+
+                printf( '<div class="featured-image" style="background-image:url( %s )"></div>', get_the_post_thumbnail_url( get_the_ID(), 'medium' ) );
 
                 if ( $title )
                     printf( '<h3>%s</h3>', $title );
