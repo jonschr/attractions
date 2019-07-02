@@ -3,7 +3,7 @@
 	Plugin Name: Attractions
 	Plugin URI: https://elod.in
     Description: Just another local attractions plugin
-	Version: 0.1
+	Version: 0.1.2
     Author: Jon Schroeder
     Author URI: https://elod.in
 
@@ -33,6 +33,7 @@ define ( 'ATTRACTIONS_VERSION', '0.1' );
 require_once( 'lib/post_type.php' );
 require_once( 'lib/tax.php' );
 require_once( 'lib/layout.php' ); 
+require_once( 'lib/fields.php' );
 require_once( 'lib/admin_columns.php' );
 
 //* Remove Yoast
