@@ -28,7 +28,7 @@ if ( !defined( 'ABSPATH' ) ) {
 define( 'ATTRACTIONS', dirname( __FILE__ ) );
 
 // Define the version of the plugin
-define ( 'ATTRACTIONS_VERSION', '0.1' );
+define ( 'ATTRACTIONS_VERSION', '0.2' );
 
 require_once( 'lib/post_type.php' );
 require_once( 'lib/tax.php' );
@@ -42,10 +42,6 @@ function attractions_enqueue() {
 	// Plugin styles
     wp_enqueue_style( 'attractions-style', plugin_dir_url( __FILE__ ) . 'css/attractions-style.css', array(), ATTRACTIONS_VERSION, 'screen' );
     
-    // Script
-    // wp_register_script( 'slick-init', plugin_dir_url( __FILE__ ) . 'js/slick-init.js', array( 'slick-main' ), REDBLUE_SECTIONS_VERSION, true );
-	
-	
 }
 
 //* Remove Yoast
