@@ -3,7 +3,7 @@
 	Plugin Name: Attractions
 	Plugin URI: https://elod.in
     Description: Just another local attractions plugin
-	Version: 0.1.2
+	Version: 1.0.0
     Author: Jon Schroeder
     Author URI: https://elod.in
 
@@ -28,7 +28,7 @@ if ( !defined( 'ABSPATH' ) ) {
 define( 'ATTRACTIONS', dirname( __FILE__ ) );
 
 // Define the version of the plugin
-define ( 'ATTRACTIONS_VERSION', '0.2' );
+define ( 'ATTRACTIONS_VERSION', '1.0.0' );
 
 require_once( 'lib/post_type.php' );
 require_once( 'lib/tax.php' );
@@ -49,4 +49,16 @@ add_action('add_meta_boxes', 'my_remove_wp_seo_meta_box', 100);
 function my_remove_wp_seo_meta_box() {
 	remove_meta_box('wpseo_meta', 'attractions', 'normal');
 }
+
+
+// Updater
+require 'vendor/plugin-update-checker/plugin-update-checker.php';
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'https://github.com/jonschr/attractions',
+	__FILE__,
+	'attractions'
+);
+
+// Optional: Set the branch that contains the stable release.
+$myUpdateChecker->setBranch('master');
 
