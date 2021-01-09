@@ -3,7 +3,7 @@
 	Plugin Name: Attractions
 	Plugin URI: https://elod.in
     Description: Just another local attractions plugin
-	Version: 1.0.0
+	Version: 1.0.1
     Author: Jon Schroeder
     Author URI: https://elod.in
 
@@ -28,7 +28,7 @@ if ( !defined( 'ABSPATH' ) ) {
 define( 'ATTRACTIONS', dirname( __FILE__ ) );
 
 // Define the version of the plugin
-define ( 'ATTRACTIONS_VERSION', '1.0.0' );
+define ( 'ATTRACTIONS_VERSION', '1.0.1' );
 
 require_once( 'lib/post_type.php' );
 require_once( 'lib/tax.php' );

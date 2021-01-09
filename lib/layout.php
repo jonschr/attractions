@@ -96,7 +96,7 @@ function attractions_do_layout( $atts ) {
             
             $custom_query->the_post();
 
-            printf( '<div class="%s">', implode( get_post_class(), ' ' ) );
+            printf( '<div class="%s">', implode( ' ', get_post_class() ) );
 
                 $title = get_the_title();
                 $address = get_post_meta( get_the_ID(), 'address' , true );
