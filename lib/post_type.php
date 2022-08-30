@@ -11,7 +11,7 @@ function neighborhood_content_types() {
 	$post_type = 'attractions';
 	$slug = 'attactions';
 	$icon = 'lightbulb'; //* https://developer.wordpress.org/resource/dashicons/
-	$supports = array( 'title', 'thumbnail' );
+	$supports = array( 'title', 'thumbnail', 'excerpt' );
 
 	$labels = array(
 		'name' => $name_plural,

@@ -1,5 +1,6 @@
 <?php
 
+add_shortcode( 'attractions', 'attractions_do_layout' );
 function attractions_do_layout( $atts ) {
     $args = shortcode_atts( array(
         'foo' => 'something',
@@ -97,34 +98,9 @@ function attractions_do_layout( $atts ) {
             $custom_query->the_post();
 
             printf( '<div class="%s">', implode( ' ', get_post_class() ) );
-
-                $title = get_the_title();
-                $address = get_post_meta( get_the_ID(), 'address' , true );
-                $customurl = get_post_meta( get_the_ID(), 'customurl' , true );
-
-                //* No link (default)
-                $link = null;
-
-                //* If we just have an address
-                if ( $address && !$customurl )
-                    $link = 'https://maps.google.com?q=' . urlencode( $title . ' ' . $address );
-
-                //* If we have a custom URL
-                if ( $customurl )
-                    $link = $customurl;
-
-                if ( $link != null )
-                    printf('<a target="_blank" class="overlay" href="%s"></a>', $link );
-
-                printf( '<div class="featured-image" style="background-image:url( %s )"></div>', get_the_post_thumbnail_url( get_the_ID(), 'large' ) );
-
-                if ( $title )
-                    printf( '<h3>%s</h3>', $title );
-
-                if ( $address )
-                printf( '<p class="address">%s</p>', $address );
             
-
+                do_action( 'do_each_attraction' );
+                
             echo '</div>';
 
         }
@@ -140,4 +116,51 @@ function attractions_do_layout( $atts ) {
 
     return ob_get_clean();
 }
-add_shortcode( 'attractions', 'attractions_do_layout' );
+
+add_action( 'do_each_attraction', 'each_attraction' );
+function each_attraction() {
+    
+    global $post;
+    
+    $title = esc_html( get_the_title() );
+    $address = esc_html( get_post_meta( get_the_ID(), 'address' , true ) );
+    $customurl = esc_url( get_post_meta( get_the_ID(), 'customurl' , true ) );
+    $phone = esc_html( get_post_meta( get_the_ID(), 'phone' , true ) );
+    $excerpt = apply_filters( 'the_content', get_the_excerpt( get_the_ID() ) );
+    $image = esc_url( get_the_post_thumbnail_url( get_the_ID(), 'large' ) );
+
+    //* No link (default)
+    $link = null;
+
+    //* If we just have an address
+    if ( $address && !$customurl )
+        $link = 'https://maps.google.com?q=' . urlencode( $title . ' ' . $address );
+
+    //* If we have a custom URL
+    if ( $customurl )
+        $link = $customurl;
+
+    if ( $link != null )
+        printf('<a target="_blank" class="overlay" href="%s"></a>', $link );
+
+    if ( $image )
+        printf( '<div class="featured-image" style="background-image:url( %s )"></div>', $image );
+        
+    echo '<div class="the-content">';
+
+        if ( $title )
+            printf( '<h3>%s</h3>', $title );
+                                    
+        if ( $phone )
+            printf( '<p class="phone">%s</p>', $phone );
+
+        if ( $address )
+            printf( '<p class="address">%s</p>', $address );
+            
+        if ( $excerpt )
+            printf( '<div class="excerpt">%s</div>', $excerpt );
+            
+    echo '</div>';
+    
+    
+}
