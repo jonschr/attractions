@@ -5,7 +5,7 @@ return array (
   'title' => 'Local Attractions',
   'type' => 'attractions',
   'id' => '630e5f201f2a2',
-  'updated' => 1661889606,
+  'updated' => 1662497748,
   'columns' => 
   array (
     '5d1a9d13925fe' => 
@@ -22,7 +22,7 @@ return array (
       'sort' => 'on',
       'edit' => 'on',
       'bulk_edit' => 'on',
-      'search' => 'off',
+      'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
       'name' => '5d1a9d13925fe',
@@ -37,7 +37,7 @@ return array (
       'sort' => 'on',
       'edit' => 'on',
       'bulk_edit' => 'on',
-      'search' => 'off',
+      'search' => 'on',
       'name' => 'title',
     ),
     '630e69c48c49bc' => 
@@ -120,7 +120,7 @@ return array (
       'export' => 'off',
       'sort' => 'on',
       'bulk_edit' => 'on',
-      'search' => 'off',
+      'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
       'name' => '5d1a9d7989da7',
