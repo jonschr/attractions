@@ -1,3 +1,7 @@
+### 1.2
+
+-   Updating Admin Columns fields
+
 ### 1.1
 
 -   Adding phone number
