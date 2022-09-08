@@ -5,13 +5,13 @@ return array (
   'title' => 'Local Attractions',
   'type' => 'attractions',
   'id' => '630e5f201f2a2',
-  'updated' => 1662497748,
+  'updated' => 1662666497,
   'columns' => 
   array (
     '5d1a9d13925fe' => 
     array (
       'type' => 'column-featured_image',
-      'label' => 'Featured Image',
+      'label' => 'Image',
       'width' => '120',
       'width_unit' => 'px',
       'featured_image_display' => 'image',
@@ -124,6 +124,22 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
       'name' => '5d1a9d7989da7',
+    ),
+    '631a46fd97ced8' => 
+    array (
+      'type' => 'column-status',
+      'label' => 'Status',
+      'width' => '',
+      'width_unit' => '%',
+      'use_icon' => '',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+      'name' => '631a46fd97ced8',
     ),
   ),
   'settings' => 

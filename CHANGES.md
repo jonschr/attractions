@@ -1,3 +1,10 @@
+### 1.2.1
+
+-   Updating Admin Columns fields
+-   Adding CPT dashicon
+-   Adding edit links to the attractions
+-   Adding gulp tasks
+
 ### 1.2
 
 -   Updating Admin Columns fields

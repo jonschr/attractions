@@ -6,11 +6,11 @@
 function neighborhood_content_types() {
 
 	//* NAME
-	$name_plural = 'Local Attractions';
+	$name_plural = 'Attractions';
 	$name_singular = 'Attraction';
 	$post_type = 'attractions';
 	$slug = 'attactions';
-	$icon = 'lightbulb'; //* https://developer.wordpress.org/resource/dashicons/
+	$icon = 'location'; //* https://developer.wordpress.org/resource/dashicons/
 	$supports = array( 'title', 'thumbnail', 'excerpt' );
 
 	$labels = array(

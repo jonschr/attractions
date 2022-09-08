@@ -1,9 +1,9 @@
 <?php
 /*
-	Plugin Name: Attractions
+	Plugin Name: Elodin Attractions
 	Plugin URI: https://elod.in
     Description: Just another local attractions plugin
-	Version: 1.2
+	Version: 1.2.1
     Author: Jon Schroeder
     Author URI: https://elod.in
 
@@ -28,7 +28,7 @@ if ( !defined( 'ABSPATH' ) ) {
 define( 'ATTRACTIONS', dirname( __FILE__ ) );
 
 // Define the version of the plugin
-define( 'ATTRACTIONS_VERSION', '1.2' );
+define( 'ATTRACTIONS_VERSION', '1.2.1' );
 define( 'ATTRACTIONS_DIR', plugin_dir_path( __FILE__ ) );
 
 require_once( 'lib/post_type.php' );

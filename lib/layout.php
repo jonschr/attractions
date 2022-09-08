@@ -160,6 +160,8 @@ function each_attraction() {
         if ( $excerpt )
             printf( '<div class="excerpt">%s</div>', $excerpt );
             
+        edit_post_link( 'Edit attraction', '<small>', '</small>' );
+            
     echo '</div>';
     
     
